@@ -3,7 +3,7 @@ import { getShoppingCart } from "../utilities/fakedb";
 const cartProductsLoader = async () => {
      // if cart data is in database, you have to use async await
      const storedCart = getShoppingCart();
-     const storedCartIds = Object.keys(storedCartIds)
+     const storedCartIds = Object.keys(storedCart)
      console.log(storedCartIds)
  
     const loadedProducts = await fetch('http://localhost:5000/productByIds',{
@@ -13,7 +13,7 @@ const cartProductsLoader = async () => {
         },
         body: JSON.stringify(storedCartIds)
     });
-    
+
     const products = await loadedProducts.json();
 
    
